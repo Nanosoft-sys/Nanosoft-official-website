@@ -25,7 +25,18 @@
         .slide:nth-child(1) { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80'); }
         .slide:nth-child(2) { background: linear-gradient(rgba(0,120,215,0.7), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=80'); }
         .slide:nth-child(3) { background: linear-gradient(rgba(106, 17, 203, 0.6), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1614850523296-d8c1af93d400?auto=format&fit=crop&w=1200&q=80'); }
-        .slide h1 { font-size: 5.5rem; font-weight: 900; margin: 0; text-transform: uppercase; letter-spacing: -4px; }
+        
+        /* HÄR ÄR DEN LUTANDE RUBRIKEN */
+        .slide h1 { 
+            font-size: 5.5rem; 
+            font-weight: 900; 
+            margin: 0; 
+            text-transform: uppercase; 
+            letter-spacing: -4px; 
+            font-style: italic; /* Gör texten kursiv */
+            transform: skewX(-5deg); /* Ger den där extra "speed"-lutningen som gamla tech-loggor har */
+        }
+        
         .slide p { font-size: 1.2rem; letter-spacing: 5px; opacity: 0.8; }
 
         .container { max-width: 1000px; margin: 0 auto; padding: 80px 20px; }
@@ -33,7 +44,7 @@
         .reveal.active { opacity: 1; transform: translateY(0); }
 
         /* TABS SECTION */
-        .tabs { display: flex; justify: center; gap: 10px; margin-bottom: 30px; flex-wrap: wrap; }
+        .tabs { display: flex; justify-content: center; gap: 10px; margin-bottom: 30px; flex-wrap: wrap; }
         .tab-btn { background: transparent; border: 2px solid var(--nano-blue); color: #fff; padding: 12px 25px; cursor: pointer; font-weight: bold; text-transform: uppercase; font-size: 0.7rem; }
         .tab-btn.active { background: var(--nano-blue); }
         .tab-content { background: var(--card-bg); padding: 40px; border: 1px solid #333; display: none; min-height: 250px; animation: fadeIn 0.5s; }
@@ -68,7 +79,7 @@
         <div style="text-align: center; margin-bottom: 80px;">
             <span style="color: var(--nano-blue); font-weight: bold;">EST. 2025</span>
             <h2 style="font-size: 3.5rem; margin: 10px 0;">Beyond Reconstruction.</h2>
-            <p style="font-size: 1.1rem; color: #aaa; max-width: 700px; margin: 0 auto;">Nanosoft is a global leader in operating system development(definitely). We specialize in high-fidelity legacy reconstruction and future-gen engineering under the Nanosoft-sys architecture.</p>
+            <p style="font-size: 1.1rem; color: #aaa; max-width: 700px; margin: 0 auto;">Nanosoft is a global leader in operating system development (definitely). We specialize in high-fidelity legacy reconstruction and future-gen engineering under the Nanosoft-sys architecture.</p>
         </div>
     </div>
 
