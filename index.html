@@ -33,7 +33,7 @@
         .reveal.active { opacity: 1; transform: translateY(0); }
 
         /* TABS SECTION */
-        .tabs { display: flex; justify-content: center; gap: 10px; margin-bottom: 30px; flex-wrap: wrap; }
+        .tabs { display: flex; justify: center; gap: 10px; margin-bottom: 30px; flex-wrap: wrap; }
         .tab-btn { background: transparent; border: 2px solid var(--nano-blue); color: #fff; padding: 12px 25px; cursor: pointer; font-weight: bold; text-transform: uppercase; font-size: 0.7rem; }
         .tab-btn.active { background: var(--nano-blue); }
         .tab-content { background: var(--card-bg); padding: 40px; border: 1px solid #333; display: none; min-height: 250px; animation: fadeIn 0.5s; }
@@ -59,8 +59,8 @@
 
 <div class="slider-container">
     <div class="slide active"><h1>NANOSOFT</h1><p>DEFINING THE DIGITAL AGE</p></div>
-    <div class="slide"><h1>LEGACY</h1><p>WINDOWS 97 PROFESSIONAL ALPHA</p></div>
-    <div class="slide"><h1>FUTURE</h1><p>WINDOWS 17 PROJECT REVEALED</p></div>
+    <div class="slide"><h1>LEGACY</h1><p>WINDOWS NS 98 PROFESSIONAL</p></div>
+    <div class="slide"><h1>FUTURE</h1><p>WINDOWS NS 10 PROJECT REVEALED</p></div>
 </div>
 
 <div class="container">
@@ -80,8 +80,8 @@
             <button class="tab-btn" onclick="openTab(event, 'hard')">Hardware</button>
         </div>
         <div id="os" class="tab-content active">
-            <h4 style="color: var(--nano-blue); font-size: 1.5rem;">Windows 97 Professional</h4>
-            <p>Our flagship project. We've taken the stability of Windows 98 and fused it with 2026 security. Integrated Nanosoft-sys cloud-syncing for your "My Documents" folder.</p>
+            <h4 style="color: var(--nano-blue); font-size: 1.5rem;">Windows NS 98</h4>
+            <p>Our flagship project. The stability of the 90s fused with 2026 security protocols. Integrated Nanosoft-sys cloud-syncing is standard.</p>
         </div>
         <div id="cloud" class="tab-content">
             <h4 style="color: var(--nano-blue); font-size: 1.5rem;">Stratosphere 97</h4>
@@ -96,23 +96,23 @@
     <div class="reveal" style="margin-top: 100px;">
         <h2 style="text-align: center; font-size: 2.5rem;">In Development</h2>
         <div class="roadmap-grid">
-            <div class="roadmap-card legacy" onclick="showInfo('win97')">
-                <span style="font-size: 0.6rem; background: #333; padding: 2px 8px;">EARLY PROTOTYPE</span>
-                <h3>Windows 97</h3>
+            <div class="roadmap-card legacy" onclick="showInfo('win98')">
+                <span style="font-size: 0.6rem; background: #0078d7; padding: 2px 8px; color: white;">CONFIRMED</span>
+                <h3>Windows NS 98</h3>
                 <p>The original vision reborn.</p>
             </div>
-            <div class="roadmap-card" onclick="showInfo('win17')">
-                <span style="font-size: 0.6rem; background: var(--future-purple); padding: 2px 8px;">SOON</span>
-                <h3>Windows 17</h3>
+            <div class="roadmap-card" onclick="showInfo('win10')">
+                <span style="font-size: 0.6rem; background: var(--future-purple); padding: 2px 8px; color: white;">SOON</span>
+                <h3>Windows NS 10</h3>
                 <p>The glass-aesthetic future.</p>
             </div>
-            <div class="roadmap-card retro" onclick="showInfo('dos97')">
-                <span style="font-size: 0.6rem; background: #333; padding: 2px 8px;">BETA</span>
-                <h3>97 DOS</h3>
+            <div class="roadmap-card retro" onclick="showInfo('nsdos')">
+                <span style="font-size: 0.6rem; background: #00ff00; padding: 2px 8px; color: black;">CONFIRMED</span>
+                <h3>NS-DOS</h3>
                 <p>Pure command-line power.</p>
             </div>
             <div class="roadmap-card" style="border-top-color:#fff;" onclick="showInfo('mobile')">
-                <span style="font-size: 0.6rem; background: #333; padding: 2px 8px;">CONCEPT</span>
+                <span style="font-size: 0.6rem; background: #333; padding: 2px 8px; color: white;">(Not a joke)</span>
                 <h3>Nanosoft Mobile</h3>
                 <p>Legacy in your pocket.</p>
             </div>
@@ -122,7 +122,7 @@
     <div class="reveal" style="margin-top: 100px; text-align: center; padding: 60px; border: 1px solid #333; background: linear-gradient(to bottom, #111, #000);">
         <h3>Enter the world of Nanosoft</h3>
         <p>Want to join the Nanosoft-sys team? Apply today.</p>
-        <a href="mailto:Mausbauhaus@gmail.com" style="background: var(--nano-blue); color: #fff; padding: 15px 40px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 20px; border-radius: 5px; box-shadow: 0 0 20px rgba(0,120,215,0.4);">CONTACT@NANOSOFT-SYS</a>
+        <a href="mailto:Mausbauhaus@gmail.com" style="background: var(--nano-blue); color: #fff; padding: 15px 40px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 20px; border-radius: 5px; box-shadow: 0 0 20px rgba(0,120,215,0.4);">Mausbauhaus@gmail.com</a>
     </div>
 </div>
 
@@ -164,10 +164,10 @@
     }, 2000);
 
     const info = {
-        win97: { title: "Windows 97 (Early Prototype)", desc: "The foundation of our reconstruction journey. This version focuses on the raw, unadulterated feel of mid-90s computing but with experimental support for modern web protocols. It is our most stable legacy build to date." },
-        win17: { title: "Windows 17 (Coming Soon)", desc: "The future is glass. Windows 17 is entering the final stage of UI polishing. It features the 'Glass Kernel' which allows for complex transparency effects without compromising the speed Nanosoft is known for." },
-        dos97: { title: "97 DOS", desc: "A raw, cloud-integrated terminal environment. Optimized for 2026 neural-link interfaces and high-speed data execution." },
-        mobile: { title: "Nanosoft Mobile", desc: "Handheld operating system currently in the blueprint phase. Aiming for a 2027 release." }
+        win98: { title: "Windows NS 98", desc: "Confirmed: A high-fidelity reconstruction of the 98 environment. Fully optimized for modern processors with legacy driver support." },
+        win10: { title: "Windows NS 10", desc: "Coming Soon: The ultimate fusion of efficiency and aesthetics. Featuring the newly developed Glass Kernel v4." },
+        nsdos: { title: "NS-DOS", desc: "Confirmed: A powerful, cloud-integrated command line environment. Pure logic, zero bloat." },
+        mobile: { title: "Nanosoft Mobile", desc: "Not a joke: We are bringing the full power of Nanosoft-sys to handheld devices. Stay tuned." }
     };
     function showInfo(project) {
         document.getElementById('modalTitle').innerText = info[project].title;
