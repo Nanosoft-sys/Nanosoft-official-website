@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NANOSOFT | Premium Legacy & Future Systems</title>
+    <title>NANOSOFT | NSG & Nuclear Clicker</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -18,39 +18,39 @@
         * { box-sizing: border-box; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
         body { background-color: var(--bg-dark); color: var(--text-light); font-family: 'Inter', sans-serif; margin: 0; overflow-x: hidden; }
 
-        /* HERO SLIDER */
-        .slider-container { height: 75vh; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; background: #000; border-bottom: 4px solid #fff; }
-        .slide { position: absolute; inset: 0; opacity: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background-size: cover; background-position: center; }
-        .slide.active { opacity: 1; }
+        /* HERO SLIDER FIX */
+        .slider-container { height: 75vh; position: relative; overflow: hidden; background: #000; border-bottom: 4px solid #fff; }
+        .slide { 
+            position: absolute; inset: 0; opacity: 0; 
+            display: flex; flex-direction: column; justify-content: center; 
+            align-items: center; text-align: center; background-size: cover; 
+            background-position: center; visibility: hidden; transition: opacity 1s, visibility 1s;
+        }
+        .slide.active { opacity: 1; visibility: visible; }
+        
         .slide:nth-child(1) { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80'); }
-        .slide:nth-child(2) { background: linear-gradient(rgba(0,120,215,0.7), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=80'); }
+        .slide:nth-child(2) { background: linear-gradient(rgba(16, 124, 16, 0.6), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=80'); }
         .slide:nth-child(3) { background: linear-gradient(rgba(106, 17, 203, 0.6), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1614850523296-d8c1af93d400?auto=format&fit=crop&w=1200&q=80'); }
         
-        /* HÄR ÄR DEN LUTANDE RUBRIKEN */
         .slide h1 { 
-            font-size: 5.5rem; 
-            font-weight: 900; 
-            margin: 0; 
-            text-transform: uppercase; 
-            letter-spacing: -4px; 
-            font-style: italic; /* Gör texten kursiv */
-            transform: skewX(-5deg); /* Ger den där extra "speed"-lutningen som gamla tech-loggor har */
+            font-size: 5.5rem; font-weight: 900; margin: 0; 
+            text-transform: uppercase; letter-spacing: -4px; 
+            font-style: italic; transform: skewX(-5deg); 
         }
-        
         .slide p { font-size: 1.2rem; letter-spacing: 5px; opacity: 0.8; }
 
         .container { max-width: 1000px; margin: 0 auto; padding: 80px 20px; }
         .reveal { opacity: 0; transform: translateY(40px); transition: 1s all ease; }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        /* TABS SECTION */
+        /* TABS */
         .tabs { display: flex; justify-content: center; gap: 10px; margin-bottom: 30px; flex-wrap: wrap; }
         .tab-btn { background: transparent; border: 2px solid var(--nano-blue); color: #fff; padding: 12px 25px; cursor: pointer; font-weight: bold; text-transform: uppercase; font-size: 0.7rem; }
         .tab-btn.active { background: var(--nano-blue); }
-        .tab-content { background: var(--card-bg); padding: 40px; border: 1px solid #333; display: none; min-height: 250px; animation: fadeIn 0.5s; }
-        .tab-content.active { display: block; }
+        .tab-content { background: var(--card-bg); padding: 40px; border: 1px solid #333; display: none; min-height: 250px; }
+        .tab-content.active { display: block; animation: fadeIn 0.5s; }
 
-        /* ROADMAP GRID & SCANNING EFFECT */
+        /* ROADMAP */
         .roadmap-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin-top: 40px; }
         .roadmap-card { background: #0f0f0f; padding: 25px; border: 2px solid transparent; border-top: 3px solid var(--future-purple); cursor: pointer; position: relative; }
         .roadmap-card.retro { border-top-color: #00ff00; }
@@ -70,8 +70,8 @@
 
 <div class="slider-container">
     <div class="slide active"><h1>NANOSOFT</h1><p>DEFINING THE DIGITAL AGE</p></div>
-    <div class="slide"><h1>CLICK!</h1></h1><p>NUCLEAR CLICKER</p></div>
-    <div class="slide"><h1>FUTURE</h1><p>WINDOWS NS 10 PROJECT REVEALED</p></div>
+    <div class="slide"><h1>CLICK!</h1><p>NUCLEAR CLICKER</p></div>
+    <div class="slide"><h1>NSG</h1><p>NANOSYSTEM GAMING INBOUND</p></div>
 </div>
 
 <div class="container">
@@ -79,7 +79,7 @@
         <div style="text-align: center; margin-bottom: 80px;">
             <span style="color: var(--nano-blue); font-weight: bold;">EST. 2025</span>
             <h2 style="font-size: 3.5rem; margin: 10px 0;">Beyond Reconstruction.</h2>
-            <p style="font-size: 1.1rem; color: #aaa; max-width: 700px; margin: 0 auto;">Nanosoft is a global leader in operating system development (definitely). We specialize in high-fidelity legacy reconstruction and future-gen engineering under the Nanosoft-sys architecture.</p>
+            <p style="font-size: 1.1rem; color: #aaa; max-width: 700px; margin: 0 auto;">Nanosoft is a global leader in operating system development. We specialize in high-fidelity legacy reconstruction and future-gen engineering under the Nanosoft-sys architecture.</p>
         </div>
     </div>
 
@@ -92,7 +92,7 @@
         </div>
         <div id="os" class="tab-content active">
             <h4 style="color: var(--nano-blue); font-size: 1.5rem;">NUCLEAR CLICKER</h4>
-            <p>An Cookie clicker like game, developed by Nanosoft and Kelpisoft</p>
+            <p>An addictive clicker game developed by Nanosoft and Kelpisoft. Power up your reactor and start clicking!</p>
         </div>
         <div id="cloud" class="tab-content">
             <h4 style="color: var(--nano-blue); font-size: 1.5rem;">Stratosphere 97</h4>
@@ -107,10 +107,10 @@
     <div class="reveal" style="margin-top: 100px;">
         <h2 style="text-align: center; font-size: 2.5rem;">In Development</h2>
         <div class="roadmap-grid">
-            <div class="roadmap-card legacy" onclick="showInfo('win98')">
+            <div class="roadmap-card legacy" onclick="showInfo('nuclear')">
                 <span style="font-size: 0.6rem; background: #0078d7; padding: 2px 8px; color: white;">ALPHA TESTING</span>
                 <h3>NUCLEAR CLICKER</h3>
-                <p>CLICK</p>
+                <p>CLICK TO WIN</p>
             </div>
             <div class="roadmap-card" onclick="showInfo('win10')">
                 <span style="font-size: 0.6rem; background: var(--future-purple); padding: 2px 8px; color: white;">SOON</span>
@@ -122,9 +122,9 @@
                 <h3>NS-DOS</h3>
                 <p>Pure command-line power.</p>
             </div>
-            <div class="roadmap-card" style="border-top-color:#fff;" onclick="showInfo('mobile')">
+            <div class="roadmap-card" style="border-top-color:#fff;" onclick="showInfo('nsg')">
                 <span style="font-size: 0.6rem; background: #333; padding: 2px 8px; color: white;">CONFIRMED</span>
-                <h3>NS-G</h3>
+                <h3>NSG</h3>
                 <p>Nanosystem-Gaming.</p>
             </div>
         </div>
@@ -148,50 +148,64 @@
 <div class="footer">&copy; |2026 NANOSOFT-SYS|</div>
 
 <script>
+    // HERO SLIDER LOGIC
     let currentSlide = 0;
     const slides = document.querySelectorAll('.slide');
-    setInterval(() => {
+    function nextSlide() {
         slides[currentSlide].classList.remove('active');
         currentSlide = (currentSlide + 1) % slides.length;
         slides[currentSlide].classList.add('active');
-    }, 5000);
+    }
+    setInterval(nextSlide, 5000);
 
+    // TABS LOGIC
     function openTab(evt, tabName) {
         let i, tabcontent, tablinks;
         tabcontent = document.getElementsByClassName("tab-content");
         for (i = 0; i < tabcontent.length; i++) tabcontent[i].style.display = "none";
         tablinks = document.getElementsByClassName("tab-btn");
-        for (i = 0; i < tablinks.length; i++) tablinks[i].className = tablinks[i].className.replace(" active", "");
+        for (i = 0; i < tablinks.length; i++) tablinks[i].classList.remove("active");
         document.getElementById(tabName).style.display = "block";
-        evt.currentTarget.className += " active";
+        evt.currentTarget.classList.add("active");
     }
 
+    // CARD SCANNING EFFECT
     let cardIdx = 0;
     const cards = document.querySelectorAll('.roadmap-card');
     setInterval(() => {
         cards.forEach(c => c.classList.remove('scan-active'));
-        cards[cardIdx].classList.add('scan-active');
-        cardIdx = (cardIdx + 1) % cards.length;
+        if(cards.length > 0) {
+            cards[cardIdx].classList.add('scan-active');
+            cardIdx = (cardIdx + 1) % cards.length;
+        }
     }, 2000);
 
+    // MODAL INFO DATA
     const info = {
-        Nnclr:{ title: "Nuclear clicker", desc: "ALPHA TESTING, Based on cookie clicker, Nuclear clicker is a clicker game developed by Nanosoft and Kelpisoft" },
-        win10:{ title: "Windows NS 10", desc: "Coming Soon: The ultimate fusion of efficiency and aesthetics. Featuring the newly developed Glass Kernel v4." },
-        nsdos:{ title: "NS-DOS", desc: "Confirmed: A powerful, cloud-integrated command line environment. Pure logic, zero bloat." },
-        nsg:{ title: "NS-G", desc: " Nanosystem-Gaming, the new gen of Gaming. Stay tuned." }
+        nuclear: { title: "Nuclear Clicker", desc: "ALPHA TESTING. Based on Cookie Clicker, Nuclear Clicker is a high-performance clicker game developed by Nanosoft and Kelpisoft. Are you ready for the meltdown?" },
+        win10: { title: "Windows NS 10", desc: "Coming Soon: The ultimate fusion of efficiency and aesthetics. Featuring the newly developed Glass Kernel v4 and NS-Shell." },
+        nsdos: { title: "NS-DOS", desc: "Confirmed: A powerful, cloud-integrated command line environment. Pure logic, zero bloat, maximum power." },
+        nsg: { title: "NSG", desc: "Nanosystem-Gaming: The next generation of gaming architecture. High performance, zero latency, 100% Nanosoft." }
     };
+
     function showInfo(project) {
-        document.getElementById('modalTitle').innerText = info[project].title;
-        document.getElementById('modalDesc').innerText = info[project].desc;
-        document.getElementById('infoModal').style.display = 'flex';
+        if(info[project]) {
+            document.getElementById('modalTitle').innerText = info[project].title;
+            document.getElementById('modalDesc').innerText = info[project].desc;
+            document.getElementById('infoModal').style.display = 'flex';
+        }
     }
+
     function closeModal() { document.getElementById('infoModal').style.display = 'none'; }
 
+    // SCROLL REVEAL TRIGGER
     window.addEventListener("scroll", () => {
         document.querySelectorAll(".reveal").forEach(el => {
             if (el.getBoundingClientRect().top < window.innerHeight - 100) el.classList.add("active");
         });
     });
+    // Check initial position
+    window.dispatchEvent(new Event('scroll'));
 </script>
 </body>
 </html>
