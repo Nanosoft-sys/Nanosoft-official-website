@@ -1,157 +1,156 @@
 <!DOCTYPE html>
-<html lang="sv">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nanosoft OS - Floating Clean</title>
+    <title>NANOSOFT | Update Pending</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #000000;
-            --accent: #007AFF; 
+            --nano-blue: #0078d7;
+            --accent-blue: #1084d0;
+            --future-purple: #6a11cb;
+            --bg-dark: #050505;
+            --card-bg: #111;
+            --text-light: #e0e0e0;
+            --warning-gold: #f1c40f;
         }
 
-        body {
-            background: var(--bg);
-            background-image: 
-                radial-gradient(circle at 10% 10%, rgba(0, 122, 255, 0.08) 0%, transparent 40%),
-                radial-gradient(circle at 90% 90%, rgba(0, 122, 255, 0.05) 0%, transparent 40%);
-            color: white;
-            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            overflow: hidden;
-            -webkit-font-smoothing: antialiased;
-        }
+        * { box-sizing: border-box; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        body { background-color: var(--bg-dark); color: var(--text-light); font-family: 'Inter', sans-serif; margin: 0; overflow-x: hidden; }
 
-        /* --- TIMER --- */
-        .timer-container {
-            text-align: center;
-            z-index: 10;
+        /* HERO SLIDER */
+        .slider-container { height: 75vh; position: relative; overflow: hidden; background: #000; border-bottom: 4px solid var(--nano-blue); }
+        .slide { 
+            position: absolute; inset: 0; opacity: 0; 
+            display: flex; flex-direction: column; justify-content: center; 
+            align-items: center; text-align: center; background-size: cover; 
+            background-position: center; visibility: hidden; transition: opacity 1s, visibility 1s;
         }
+        .slide.active { opacity: 1; visibility: visible; }
+        
+        .slide:nth-child(1) { background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80'); }
+        .slide:nth-child(2) { background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=80'); }
+        
+        .slide h1 { 
+            font-size: clamp(3rem, 10vw, 5.5rem); font-weight: 900; margin: 0; 
+            text-transform: uppercase; letter-spacing: -4px; 
+            font-style: italic; transform: skewX(-5deg); 
+        }
+        .slide p { font-size: 1.2rem; letter-spacing: 2px; color: var(--warning-gold); font-weight: bold; }
 
-        h1 { 
-            font-size: 0.8rem; 
-            font-weight: 500; 
-            color: rgba(255,255,255,0.2); 
-            margin-bottom: 0; 
-            letter-spacing: 3px; 
-            text-transform: uppercase;
-        }
+        .container { max-width: 1000px; margin: 0 auto; padding: 80px 20px; }
+        .reveal { opacity: 0; transform: translateY(40px); transition: 1s all ease; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
 
-        #main-timer { 
-            font-size: clamp(4rem, 20vw, 8rem); 
-            font-weight: 800; 
-            letter-spacing: -5px; 
-            font-variant-numeric: tabular-nums;
-            background: linear-gradient(180deg, #FFFFFF 0%, rgba(255,255,255,0.3) 100%);
-            -webkit-background-clip: text; 
-            -webkit-text-fill-color: transparent;
-            line-height: 1;
-        }
+        /* TABS */
+        .tabs { display: flex; justify-content: center; gap: 10px; margin-bottom: 30px; flex-wrap: wrap; }
+        .tab-btn { background: transparent; border: 2px solid var(--nano-blue); color: #fff; padding: 12px 25px; cursor: pointer; font-weight: bold; text-transform: uppercase; font-size: 0.7rem; }
+        .tab-btn.active { background: var(--nano-blue); }
+        .tab-content { background: var(--card-bg); padding: 40px; border: 1px solid #333; display: none; min-height: 200px; text-align: center; }
+        .tab-content.active { display: block; animation: fadeIn 0.5s; }
 
-        /* --- FLYTANDE TEXT (UTANFÖR MITTEN) --- */
-        .floating-text {
-            position: fixed;
-            color: var(--accent);
-            font-size: 0.9rem;
-            font-weight: 400;
-            letter-spacing: 1px;
-            pointer-events: none;
-            white-space: nowrap;
-            animation: popFade 2.5s ease-out forwards;
-            z-index: 5;
-        }
+        /* ROADMAP */
+        .roadmap-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin-top: 40px; }
+        .roadmap-card { background: #0f0f0f; padding: 25px; border: 2px solid transparent; border-top: 3px solid var(--warning-gold); cursor: pointer; position: relative; }
+        .roadmap-card.scan-active { border-color: var(--warning-gold); transform: scale(1.02); }
 
-        @keyframes popFade {
-            0% { opacity: 0; transform: translateY(10px); }
-            15% { opacity: 1; transform: translateY(0); }
-            85% { opacity: 1; }
-            100% { opacity: 0; transform: translateY(-15px); }
-        }
-
-        /* --- POWERED BY TEXT --- */
-        .powered-by {
-            margin-top: 15px;
-            font-size: 11px;
-            color: rgba(255,255,255,0.3);
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        .footer { 
-            position: fixed; 
-            bottom: 30px; 
-            font-size: 10px; 
-            color: rgba(255,255,255,0.1); 
-            letter-spacing: 3px; 
-            text-transform: uppercase; 
-        }
+        .footer { text-align: center; padding: 100px 20px; color: #666; font-size: 0.75rem; border-top: 1px solid #222; line-height: 2; }
+        
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     </style>
 </head>
 <body>
 
-    <div class="timer-container">
-        <h1>Uptime</h1>
-        <div id="main-timer">00:00</div>
-        <div class="powered-by">Powered by Nanosoft</div>
+<div class="slider-container">
+    <div class="slide active"><h1>NANOSOFT</h1><p>SYSTEM UPDATE PENDING</p></div>
+    <div class="slide"><h1>OUTDATED</h1><p>NEW CONTENT ARRIVING SHORTLY</p></div>
+</div>
+
+<div class="container">
+    <div class="reveal">
+        <div style="text-align: center; margin-bottom: 80px;">
+            <span style="color: var(--warning-gold); font-weight: bold; letter-spacing: 2px;">NOTICE</span>
+            <h2 style="font-size: clamp(2rem, 8vw, 3.5rem); margin: 10px 0;">Information Outdated.</h2>
+            <p style="font-size: 1.1rem; color: #aaa; max-width: 700px; margin: 0 auto; border-left: 3px solid var(--warning-gold); padding-left: 20px;">
+                This website is currently outdated with the information and will get updated shortly. We are working on reconstruction of the Nanosoft-sys architecture.
+            </p>
+        </div>
     </div>
 
-    <div class="footer">Nanosoft Minimal v4.1</div>
+    <div class="reveal">
+        <h3 style="text-align: center; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 30px;">System Status</h3>
+        <div class="tabs">
+            <button class="tab-btn active" onclick="openTab(event, 'info')">Current Status</button>
+        </div>
+        <div id="info" class="tab-content active">
+            <h4 style="color: var(--warning-gold); font-size: 1.5rem; text-transform: uppercase;">Maintenance Mode</h4>
+            <p>All technical specifications and game data on this page are currently under review. Please check back soon for the 2026 Roadmap update.</p>
+        </div>
+    </div>
 
-    <script>
-        let seconds = 0;
+    <div class="reveal" style="margin-top: 100px;">
+        <h2 style="text-align: center; font-size: 2.5rem;">Pending Updates</h2>
+        <div class="roadmap-grid">
+            <div class="roadmap-card">
+                <span style="font-size: 0.6rem; background: var(--warning-gold); padding: 2px 8px; color: black; font-weight: bold;">REVISION</span>
+                <h3>Project Alpha</h3>
+                <p>Status: Outdated</p>
+            </div>
+            <div class="roadmap-card">
+                <span style="font-size: 0.6rem; background: var(--warning-gold); padding: 2px 8px; color: black; font-weight: bold;">REVISION</span>
+                <h3>Infrastructure</h3>
+                <p>Updating shortly...</p>
+            </div>
+            <div class="roadmap-card">
+                <span style="font-size: 0.6rem; background: var(--warning-gold); padding: 2px 8px; color: black; font-weight: bold;">REVISION</span>
+                <h3>Ecosystem</h3>
+                <p>New info inbound.</p>
+            </div>
+        </div>
+    </div>
 
-        function spawnText(msg) {
-            const textNode = document.createElement('div');
-            textNode.className = 'floating-text';
-            textNode.innerText = msg;
+    <div class="reveal" style="margin-top: 100px; text-align: center; padding: 60px; border: 1px solid #333; background: linear-gradient(to bottom, #111, #000);">
+        <h3>Contact for Details</h3>
+        <p>For current information, please reach out to the team.</p>
+        <a href="mailto:Mausbauhaus@gmail.com" style="background: var(--nano-blue); color: #fff; padding: 15px 40px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 20px; border-radius: 5px;">Mausbauhaus@gmail.com</a>
+    </div>
+</div>
 
-            // Logik för att undvika mitten (timern)
-            // Vi slumpar positioner men tvingar dem till kanterna (vänster 0-30% eller höger 70-90%)
-            const side = Math.random() > 0.5 ? 'left' : 'right';
-            let x;
-            if (side === 'left') {
-                x = Math.random() * 25 + 5; // 5% till 30%
-            } else {
-                x = Math.random() * 25 + 70; // 70% till 95%
-            }
+<div class="footer">
+    NANOSOFT © 2026 | ALL INFORMATION SUBJECT TO CHANGE<br>
+    RECONSTRUCTION IN PROGRESS
+</div>
 
-            const y = Math.random() * 80 + 10; // 10% till 90% på höjden
+<script>
+    // SLIDER LOGIC
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    function nextSlide() {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add('active');
+    }
+    setInterval(nextSlide, 4000);
 
-            textNode.style.left = x + '%';
-            textNode.style.top = y + '%';
+    // TABS LOGIC
+    function openTab(evt, tabName) {
+        let i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tab-content");
+        for (i = 0; i < tabcontent.length; i++) tabcontent[i].style.display = "none";
+        tablinks = document.getElementsByClassName("tab-btn");
+        for (i = 0; i < tablinks.length; i++) tablinks[i].classList.remove("active");
+        document.getElementById(tabName).style.display = "block";
+        evt.currentTarget.classList.add("active");
+    }
 
-            document.body.appendChild(textNode);
-
-            setTimeout(() => {
-                textNode.remove();
-            }, 2500);
-        }
-
-        setInterval(() => {
-            seconds++;
-            
-            let m = Math.floor(seconds / 60).toString().padStart(2, '0');
-            let s = (seconds % 60).toString().padStart(2, '0');
-            document.getElementById('main-timer').innerText = `${m}:${s}`;
-
-            // Meddelanden vid specifika tider
-            if (seconds === 10) spawnText("10 seconds logged.");
-            if (seconds === 30) spawnText("Half a minute reached.");
-            if (seconds === 60) spawnText("60 seconds. Efficiency optimal.");
-            if (seconds === 120) spawnText("2 minutes active.");
-            
-            // Slumpmässiga system-meddelanden efter 2 minuter
-            if (seconds > 120 && seconds % 40 === 0) {
-                const randomMsgs = ["All systems nominal.", "Time is flowing.", "Nanosoft monitoring...", "Data synchronizing."];
-                spawnText(randomMsgs[Math.floor(Math.random() * randomMsgs.length)]);
-            }
-
-        }, 1000);
-    </script>
+    // SCROLL REVEAL
+    window.addEventListener("scroll", () => {
+        document.querySelectorAll(".reveal").forEach(el => {
+            if (el.getBoundingClientRect().top < window.innerHeight - 100) el.classList.add("active");
+        });
+    });
+    window.dispatchEvent(new Event('scroll'));
+</script>
 </body>
 </html>
