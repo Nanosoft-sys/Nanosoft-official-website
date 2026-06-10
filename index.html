@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NANOSOFT | SYSTEM REWORK</title>
+    <title>NANOSOFT | REWORK</title>
     <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Inter:wght@900&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -22,9 +22,9 @@
             padding: 0;
         }
 
-        /* HARD MINIMALIST HEADER */
+        /* CLEAN MINIMALIST HEADER */
         .header {
-            padding: 120px 20px 60px 20px;
+            padding: 140px 20px 60px 20px;
             text-align: center;
             border-bottom: 1px solid var(--border);
         }
@@ -48,94 +48,27 @@
         }
 
         .main-container {
-            max-width: 800px;
+            max-width: 750px;
             margin: 0 auto;
             padding: 60px 20px;
         }
 
-        /* CONCEPT REWORK STATUS BOARD */
-        .status-board {
-            border: 1px solid var(--border);
-            padding: 30px;
-            margin-bottom: 40px;
-        }
-
-        .status-board h2 {
-            margin: 0 0 15px 0;
-            font-size: 14px;
-            font-weight: bold;
-            color: #fff;
-        }
-
-        .status-board p {
-            font-size: 13px;
-            line-height: 1.7;
-            color: #888;
-            margin: 0;
-        }
-
-        /* GRID FOR COMPILING SPECIFICATIONS */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-            gap: 20px;
-            margin-top: 40px;
-        }
-
-        .grid-item {
+        /* NOTICE BOX */
+        .notice-box {
             border: 1px dashed var(--border);
-            padding: 25px;
+            padding: 40px;
+            line-height: 1.8;
+            font-size: 14px;
+            color: #b0b0b0;
         }
 
-        .grid-item span {
-            font-size: 11px;
-            color: var(--text-dim);
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        .grid-item h3 {
-            margin: 0 0 5px 0;
-            font-size: 15px;
-            font-weight: bold;
-        }
-
-        .grid-item p {
-            margin: 0;
-            font-size: 12px;
-            color: #666;
-        }
-
-        /* RAW LOADING PROGRESS BAR */
-        .progress-box {
-            margin-top: 40px;
-            border: 1px solid var(--border);
-            padding: 20px;
-        }
-
-        .progress-header {
-            display: flex;
-            justify-content: space-between;
-            font-size: 11px;
-            color: var(--text-dim);
-            margin-bottom: 10px;
-        }
-
-        .bar-wrapper {
-            width: 100%;
-            height: 2px;
-            background: #111;
-        }
-
-        .bar-fill {
-            width: 42%;
-            height: 100%;
-            background: #fff;
+        .notice-box strong {
+            color: #fff;
         }
 
         /* CONTACT LINK */
         .contact-section {
-            margin-top: 60px;
+            margin-top: 50px;
             text-align: center;
         }
 
@@ -168,44 +101,15 @@
 
 <div class="header">
     <h1>NANOSOFT</h1>
-    <p>Architecture Reconstruction // 2026</p>
+    <p>System Reconstruction</p>
 </div>
 
 <div class="main-container">
 
-    <div class="status-board">
-        <h2>[ SYSTEM NOTICE ]</h2>
-        <p>
-            The legacy platform architecture has been completely taken offline. We are actively restructuring the entire core system into a unified browser-based platform. All old data, content grids, and specifications are currently undergoing heavy revision.
-        </p>
-    </div>
-
-    <div class="grid">
-        <div class="grid-item">
-            <span>[ STAGE 01 ]</span>
-            <h3>CORE DEPRECATED</h3>
-            <p>Legacy systems dropped from root directory.</p>
-        </div>
-        <div class="grid-item">
-            <span>[ STAGE 02 ]</span>
-            <h3>RECONSTRUCTING</h3>
-            <p>Compiling clean system elements and index structures.</p>
-        </div>
-        <div class="grid-item">
-            <span>[ STAGE 03 ]</span>
-            <h3>CONCEPT STATE</h3>
-            <p>Running isolated local environment tests.</p>
-        </div>
-    </div>
-
-    <div class="progress-box">
-        <div class="progress-header">
-            <span>COMPILING NEW SYSTEM ENVIRONMENT</span>
-            <span>42% DONE</span>
-        </div>
-        <div class="bar-wrapper">
-            <div class="bar-fill"></div>
-        </div>
+    <div class="notice-box">
+        We have officially shut down our website to perform a complete rework of the Nanosoft architecture. All legacy systems, public codebases, and specifications are currently offline while we rebuild the platform from scratch.
+        <br><br>
+        <strong>This will be done in late 2026 (negotiable).</strong>
     </div>
 
     <div class="contact-section">
@@ -215,7 +119,7 @@
 </div>
 
 <div class="footer">
-    INTERNAL DEV ARCHIVE // ALL DETAILS SUBJECT TO SHIFT WITHOUT NOTICE
+    INTERNAL DEV // ARCHITECTURE UNDER HEAVY REVISION
 </div>
 
 </body>
