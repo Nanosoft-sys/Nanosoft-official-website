@@ -3,154 +3,269 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NANOSOFT | Update Pending</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <title>NANOSOFT ARCHITECTURE | CONCEPT & REWORK</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&family=Inter:wght@400;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --nano-blue: #0078d7;
-            --accent-blue: #1084d0;
-            --future-purple: #6a11cb;
-            --bg-dark: #050505;
-            --card-bg: #111;
-            --text-light: #e0e0e0;
-            --warning-gold: #f1c40f;
+            --hornet-yellow: #f1c40f;
+            --hornet-dark: #0a0a0a;
+            --panel-bg: rgba(15, 15, 15, 0.85);
+            --border-color: #222222;
+            --text-muted: #555555;
+            --text-light: #dcdcdc;
         }
 
-        * { box-sizing: border-box; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-        body { background-color: var(--bg-dark); color: var(--text-light); font-family: 'Inter', sans-serif; margin: 0; overflow-x: hidden; }
-
-        /* HERO SLIDER */
-        .slider-container { height: 75vh; position: relative; overflow: hidden; background: #000; border-bottom: 4px solid var(--nano-blue); }
-        .slide { 
-            position: absolute; inset: 0; opacity: 0; 
-            display: flex; flex-direction: column; justify-content: center; 
-            align-items: center; text-align: center; background-size: cover; 
-            background-position: center; visibility: hidden; transition: opacity 1s, visibility 1s;
+        * { box-sizing: border-box; }
+        body { 
+            background-color: var(--hornet-dark); 
+            color: var(--text-light); 
+            font-family: 'JetBrains+Mono', monospace; 
+            margin: 0; 
+            overflow-x: hidden;
+            /* Blueprint/Grid-känsla i bakgrunden */
+            background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 30px 30px;
         }
-        .slide.active { opacity: 1; visibility: visible; }
-        
-        .slide:nth-child(1) { background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80'); }
-        .slide:nth-child(2) { background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=80'); }
-        
-        .slide h1 { 
-            font-size: clamp(3rem, 10vw, 5.5rem); font-weight: 900; margin: 0; 
-            text-transform: uppercase; letter-spacing: -4px; 
-            font-style: italic; transform: skewX(-5deg); 
+
+        /* --- THE DESIGN REWORK CONCEPT HERO --- */
+        .concept-header { 
+            padding: 100px 20px 60px 20px; 
+            text-align: center;
+            border-bottom: 1px dashed var(--border-color);
+            position: relative;
         }
-        .slide p { font-size: 1.2rem; letter-spacing: 2px; color: var(--warning-gold); font-weight: bold; }
 
-        .container { max-width: 1000px; margin: 0 auto; padding: 80px 20px; }
-        .reveal { opacity: 0; transform: translateY(40px); transition: 1s all ease; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
+        .status-badge {
+            font-size: 11px;
+            background: var(--hornet-yellow);
+            color: #000;
+            padding: 4px 12px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
 
-        /* TABS */
-        .tabs { display: flex; justify-content: center; gap: 10px; margin-bottom: 30px; flex-wrap: wrap; }
-        .tab-btn { background: transparent; border: 2px solid var(--nano-blue); color: #fff; padding: 12px 25px; cursor: pointer; font-weight: bold; text-transform: uppercase; font-size: 0.7rem; }
-        .tab-btn.active { background: var(--nano-blue); }
-        .tab-content { background: var(--card-bg); padding: 40px; border: 1px solid #333; display: none; min-height: 200px; text-align: center; }
-        .tab-content.active { display: block; animation: fadeIn 0.5s; }
-
-        /* ROADMAP */
-        .roadmap-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin-top: 40px; }
-        .roadmap-card { background: #0f0f0f; padding: 25px; border: 2px solid transparent; border-top: 3px solid var(--warning-gold); cursor: pointer; position: relative; }
-        .roadmap-card.scan-active { border-color: var(--warning-gold); transform: scale(1.02); }
-
-        .footer { text-align: center; padding: 100px 20px; color: #666; font-size: 0.75rem; border-top: 1px solid #222; line-height: 2; }
+        .concept-header h1 { 
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(2.5rem, 8vw, 5rem); 
+            font-weight: 900; 
+            margin: 0; 
+            text-transform: uppercase; 
+            letter-spacing: -2px; 
+            color: #ffffff;
+        }
         
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .concept-header h2 {
+            font-size: clamp(1.2rem, 4vw, 2.2rem);
+            color: var(--text-muted);
+            margin: 5px 0 30px 0;
+            font-weight: 300;
+        }
+
+        /* LIVE SOURCE CODE COMPILING STREAM */
+        .terminal-stream {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #000;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            text-align: left;
+            font-size: 11px;
+            color: #4af626; /* Klassisk grön terminal */
+            opacity: 0.7;
+            height: 60px;
+            overflow: hidden;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.8);
+        }
+
+        .container { max-width: 900px; margin: 0 auto; padding: 60px 20px; }
+
+        /* REWORK INFO COMPONENT */
+        .rework-box {
+            background: var(--panel-bg);
+            border: 1px solid var(--border-color);
+            border-left: 4px solid var(--hornet-yellow);
+            padding: 30px;
+            margin-bottom: 5px;
+            backdrop-filter: blur(10px);
+        }
+
+        .rework-box h3 { margin-top: 0; color: #fff; font-size: 16px; text-transform: uppercase; }
+        .rework-box p { font-size: 13px; line-height: 1.6; color: #aaa; margin-bottom: 0; }
+
+        /* SYSTEM SPECS GRID (CONCEPT SHIFT) */
+        .spec-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+            gap: 1px; 
+            background: var(--border-color);
+            margin-top: 40px;
+            border: 1px solid var(--border-color);
+        }
+        
+        .spec-card { 
+            background: var(--hornet-dark); 
+            padding: 25px; 
+        }
+        
+        .spec-card h4 { margin: 0 0 10px 0; font-size: 12px; color: var(--hornet-yellow); text-transform: uppercase; }
+        .spec-card .status-line { font-size: 20px; font-weight: bold; color: #fff; margin-bottom: 5px; font-family: 'Inter', sans-serif;}
+        .spec-card .desc { font-size: 11px; color: var(--text-muted); }
+
+        /* ANIMATED RECONSTRUCTION METER */
+        .reconstruction-section {
+            margin-top: 60px;
+            background: #0d0d0d;
+            border: 1px solid var(--border-color);
+            padding: 30px;
+            text-align: center;
+        }
+
+        .meter-container {
+            width: 100%;
+            height: 20px;
+            background: #111;
+            border: 1px solid #333;
+            margin-top: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .meter-fill {
+            width: 42%; /* Justerbart konceptstadium */
+            height: 100%;
+            background: repeating-linear-gradient(
+                45deg,
+                var(--hornet-yellow),
+                var(--hornet-yellow) 10px,
+                #d4af37 10px,
+                #d4af37 20px
+            );
+            animation: progressStripes 1s linear infinite;
+        }
+
+        /* CONTACT WINDOW (CLEAN TERMINAL STYLE) */
+        .contact-area {
+            margin-top: 60px;
+            border: 1px dashed var(--border-color);
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .contact-link {
+            color: var(--hornet-yellow);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            border: 1px solid var(--hornet-yellow);
+            padding: 10px 20px;
+            display: inline-block;
+            margin-top: 15px;
+        }
+        .contact-link:hover {
+            background: var(--hornet-yellow);
+            color: #000;
+        }
+
+        .footer { 
+            text-align: center; 
+            padding: 80px 20px; 
+            color: var(--text-muted); 
+            font-size: 11px; 
+            border-top: 1px dashed var(--border-color); 
+        }
+
+        @keyframes progressStripes {
+            from { background-position: 0 0; }
+            to { background-position: 28px 0; }
+        }
     </style>
 </head>
 <body>
 
-<div class="slider-container">
-    <div class="slide active"><h1>NANOSOFT</h1><p>SYSTEM UPDATE PENDING</p></div>
-    <div class="slide"><h1>OUTDATED</h1><p>NEW CONTENT ARRIVING SHORTLY</p></div>
+<div class="concept-header">
+    <div class="status-badge">RECONSTRUCTION STAGE: DEPLOYED</div>
+    <h1>NANOSOFT</h1>
+    <h2>Project Code Name: Hornet</h2>
+    
+    <div class="terminal-stream" id="terminal-log">
+        [SYS] Initializing kernel wipe...<br>
+        [KERNEL] Discarding outdated CoreOS 9 components...
+    </div>
 </div>
 
 <div class="container">
-    <div class="reveal">
-        <div style="text-align: center; margin-bottom: 80px;">
-            <span style="color: var(--warning-gold); font-weight: bold; letter-spacing: 2px;">NOTICE</span>
-            <h2 style="font-size: clamp(2rem, 8vw, 3.5rem); margin: 10px 0;">Information Outdated.</h2>
-            <p style="font-size: 1.1rem; color: #aaa; max-width: 700px; margin: 0 auto; border-left: 3px solid var(--warning-gold); padding-left: 20px;">
-                This website is currently outdated with the information and will get updated shortly. We are working on reconstruction of the Nanosoft-sys architecture. Targeted to be done in late 2026 (nagotiable)  
-            </p>
+    
+    <div class="rework-box">
+        <h3>[!] ARCHITECTURE UNDER HEAVY REWORK</h3>
+        <p>
+            The previous standard web layout and data structure have been completely scrapped. We are actively converting the system into a sandboxed browser environment built upon the <strong>Hornet Kernel (v0.1)</strong>. Standard text and legacy specs are offline during this rewrite. Target stabilization window: Late 2026.
+        </p>
+    </div>
+
+    <div class="spec-grid">
+        <div class="spec-card">
+            <h4>Pipeline 01</h4>
+            <div class="status-line">DEPRECATED</div>
+            <div class="desc">Old core structure completely removed from root.</div>
+        </div>
+        <div class="spec-card">
+            <h4>Pipeline 02</h4>
+            <div class="status-line">RECOMPILING</div>
+            <div class="desc">Integrating high-precision dock components & search indexers.</div>
+        </div>
+        <div class="spec-card">
+            <h4>Pipeline 03</h4>
+            <div class="status-line">CONCEPT STATE</div>
+            <div class="desc">Testing visual assets, boot sequencers, and user nodes.</div>
         </div>
     </div>
 
-    <div class="reveal">
-        <h3 style="text-align: center; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 30px;">System Status</h3>
-        <div class="tabs">
-            <button class="tab-btn active" onclick="openTab(event, 'info')">Current Status</button>
+    <div class="reconstruction-section">
+        <div style="display: flex; justify-content: space-between; font-size: 12px;">
+            <span style="color: var(--text-muted);">HORNET RECONSTRUCTION STATUS</span>
+            <span style="color: var(--hornet-yellow); font-weight: bold;">42% STABLE</span>
         </div>
-        <div id="info" class="tab-content active">
-            <h4 style="color: var(--warning-gold); font-size: 1.5rem; text-transform: uppercase;">Maintenance Mode</h4>
-            <p>All technical specifications and game data on this page are currently under review. Please check back soon for the 2026 Roadmap update.</p>
-        </div>
-    </div>
-
-    <div class="reveal" style="margin-top: 100px;">
-        <h2 style="text-align: center; font-size: 2.5rem;">Pending Updates</h2>
-        <div class="roadmap-grid">
-            <div class="roadmap-card">
-                <span style="font-size: 0.6rem; background: var(--warning-gold); padding: 2px 8px; color: black; font-weight: bold;">REVISION</span>
-                <h3>Project Alpha</h3>
-                <p>Status: Outdated</p>
-            </div>
-            <div class="roadmap-card">
-                <span style="font-size: 0.6rem; background: var(--warning-gold); padding: 2px 8px; color: black; font-weight: bold;">REVISION</span>
-                <h3>Infrastructure</h3>
-                <p>Updating shortly...</p>
-            </div>
-            <div class="roadmap-card">
-                <span style="font-size: 0.6rem; background: var(--warning-gold); padding: 2px 8px; color: black; font-weight: bold;">REVISION</span>
-                <h3>Ecosystem</h3>
-                <p>New info inbound.</p>
-            </div>
+        <div class="meter-container">
+            <div class="meter-fill"></div>
         </div>
     </div>
 
-    <div class="reveal" style="margin-top: 100px; text-align: center; padding: 60px; border: 1px solid #333; background: linear-gradient(to bottom, #111, #000);">
-        <h3>Contact for Details</h3>
-        <p>For current information, please reach out to the team.</p>
-        <a href="mailto:Mausbauhaus@gmail.com" style="background: var(--nano-blue); color: #fff; padding: 15px 40px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 20px; border-radius: 5px;">Mausbauhaus@gmail.com</a>
+    <div class="contact-area">
+        <span style="font-size: 12px; color: var(--text-muted);">FOR ADMIN QUERIES / SECURE PACKAGES</span><br>
+        <a href="mailto:Mausbauhaus@gmail.com" class="contact-link">Mausbauhaus@gmail.com</a>
     </div>
+
 </div>
 
 <div class="footer">
-    NANOSOFT © 2026 | ALL INFORMATION SUBJECT TO CHANGE<br>
-    RECONSTRUCTION IN PROGRESS
+    NANOSOFT LABS © 2026 | ALL SYSTEMS SUBJECT TO EXTENSIVE ARCHITECTURAL VARIATION<br>
+    BUILD TYPE: INTERNAL DEV // CODE NAME: HORNET
 </div>
 
 <script>
-    // SLIDER LOGIC
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.slide');
-    function nextSlide() {
-        slides[currentSlide].classList.remove('active');
-        currentSlide = (currentSlide + 1) % slides.length;
-        slides[currentSlide].classList.add('active');
-    }
-    setInterval(nextSlide, 4000);
-
-    // TABS LOGIC
-    function openTab(evt, tabName) {
-        let i, tabcontent, tablinks;
-        tabcontent = document.getElementsByClassName("tab-content");
-        for (i = 0; i < tabcontent.length; i++) tabcontent[i].style.display = "none";
-        tablinks = document.getElementsByClassName("tab-btn");
-        for (i = 0; i < tablinks.length; i++) tablinks[i].classList.remove("active");
-        document.getElementById(tabName).style.display = "block";
-        evt.currentTarget.classList.add("active");
-    }
-
-    // SCROLL REVEAL
-    window.addEventListener("scroll", () => {
-        document.querySelectorAll(".reveal").forEach(el => {
-            if (el.getBoundingClientRect().top < window.innerHeight - 100) el.classList.add("active");
-        });
-    });
-    window.dispatchEvent(new Event('scroll'));
+    // Live-logg-effekt i den lilla rutan längst upp som scrollar text
+    const logContainer = document.getElementById('terminal-log');
+    const logLines = [
+        "[SYS] Syncing with Macon Search Cluster...",
+        "[DOCK] Compiling standalone window modules...",
+        "[HORNET] Shell stabilization matrix in progress...",
+        "[KERNEL] Allocation of browser-sandbox safe memory completed.",
+        "[SYS] Warning: Legacy data assets set to read-only.",
+        "[BUILD] Version 0.1 Internal alpha active.",
+        "[SYS] Awaiting next input from Administrator..."
+    ];
+    
+    setInterval(() => {
+        const randomLine = logLines[Math.floor(Math.random() * logLines.length)];
+        logContainer.innerHTML += `<br>${randomLine}`;
+        logContainer.scrollTop = logContainer.scrollHeight;
+    }, 2500);
 </script>
+
 </body>
 </html>
