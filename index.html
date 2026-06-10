@@ -3,269 +3,220 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NANOSOFT ARCHITECTURE | CONCEPT & REWORK</title>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&family=Inter:wght@400;900&display=swap" rel="stylesheet">
+    <title>NANOSOFT | SYSTEM REWORK</title>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Inter:wght@900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --hornet-yellow: #f1c40f;
-            --hornet-dark: #0a0a0a;
-            --panel-bg: rgba(15, 15, 15, 0.85);
-            --border-color: #222222;
-            --text-muted: #555555;
-            --text-light: #dcdcdc;
+            --bg: #000000;
+            --border: #222222;
+            --text: #ffffff;
+            --text-dim: #555555;
         }
 
         * { box-sizing: border-box; }
         body { 
-            background-color: var(--hornet-dark); 
-            color: var(--text-light); 
-            font-family: 'JetBrains+Mono', monospace; 
+            background-color: var(--bg); 
+            color: var(--text); 
+            font-family: 'Courier Prime', monospace; 
             margin: 0; 
-            overflow-x: hidden;
-            /* Blueprint/Grid-känsla i bakgrunden */
-            background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-                              linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
-            background-size: 30px 30px;
+            padding: 0;
         }
 
-        /* --- THE DESIGN REWORK CONCEPT HERO --- */
-        .concept-header { 
-            padding: 100px 20px 60px 20px; 
+        /* HARD MINIMALIST HEADER */
+        .header {
+            padding: 120px 20px 60px 20px;
             text-align: center;
-            border-bottom: 1px dashed var(--border-color);
-            position: relative;
+            border-bottom: 1px solid var(--border);
         }
 
-        .status-badge {
-            font-size: 11px;
-            background: var(--hornet-yellow);
-            color: #000;
-            padding: 4px 12px;
-            font-weight: bold;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            display: inline-block;
-            margin-bottom: 20px;
-        }
-
-        .concept-header h1 { 
+        .header h1 {
             font-family: 'Inter', sans-serif;
-            font-size: clamp(2.5rem, 8vw, 5rem); 
-            font-weight: 900; 
-            margin: 0; 
-            text-transform: uppercase; 
-            letter-spacing: -2px; 
-            color: #ffffff;
-        }
-        
-        .concept-header h2 {
-            font-size: clamp(1.2rem, 4vw, 2.2rem);
-            color: var(--text-muted);
-            margin: 5px 0 30px 0;
-            font-weight: 300;
+            font-size: clamp(3rem, 10vw, 6rem);
+            font-weight: 900;
+            margin: 0;
+            letter-spacing: -3px;
+            line-height: 1;
+            text-transform: uppercase;
         }
 
-        /* LIVE SOURCE CODE COMPILING STREAM */
-        .terminal-stream {
+        .header p {
+            font-size: 13px;
+            color: var(--text-dim);
+            margin: 15px 0 0 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .main-container {
             max-width: 800px;
             margin: 0 auto;
-            background: #000;
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            padding: 15px;
-            text-align: left;
-            font-size: 11px;
-            color: #4af626; /* Klassisk grön terminal */
-            opacity: 0.7;
-            height: 60px;
-            overflow: hidden;
-            box-shadow: inset 0 0 10px rgba(0,0,0,0.8);
+            padding: 60px 20px;
         }
 
-        .container { max-width: 900px; margin: 0 auto; padding: 60px 20px; }
-
-        /* REWORK INFO COMPONENT */
-        .rework-box {
-            background: var(--panel-bg);
-            border: 1px solid var(--border-color);
-            border-left: 4px solid var(--hornet-yellow);
+        /* CONCEPT REWORK STATUS BOARD */
+        .status-board {
+            border: 1px solid var(--border);
             padding: 30px;
-            margin-bottom: 5px;
-            backdrop-filter: blur(10px);
+            margin-bottom: 40px;
         }
 
-        .rework-box h3 { margin-top: 0; color: #fff; font-size: 16px; text-transform: uppercase; }
-        .rework-box p { font-size: 13px; line-height: 1.6; color: #aaa; margin-bottom: 0; }
-
-        /* SYSTEM SPECS GRID (CONCEPT SHIFT) */
-        .spec-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-            gap: 1px; 
-            background: var(--border-color);
-            margin-top: 40px;
-            border: 1px solid var(--border-color);
-        }
-        
-        .spec-card { 
-            background: var(--hornet-dark); 
-            padding: 25px; 
-        }
-        
-        .spec-card h4 { margin: 0 0 10px 0; font-size: 12px; color: var(--hornet-yellow); text-transform: uppercase; }
-        .spec-card .status-line { font-size: 20px; font-weight: bold; color: #fff; margin-bottom: 5px; font-family: 'Inter', sans-serif;}
-        .spec-card .desc { font-size: 11px; color: var(--text-muted); }
-
-        /* ANIMATED RECONSTRUCTION METER */
-        .reconstruction-section {
-            margin-top: 60px;
-            background: #0d0d0d;
-            border: 1px solid var(--border-color);
-            padding: 30px;
-            text-align: center;
-        }
-
-        .meter-container {
-            width: 100%;
-            height: 20px;
-            background: #111;
-            border: 1px solid #333;
-            margin-top: 15px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .meter-fill {
-            width: 42%; /* Justerbart konceptstadium */
-            height: 100%;
-            background: repeating-linear-gradient(
-                45deg,
-                var(--hornet-yellow),
-                var(--hornet-yellow) 10px,
-                #d4af37 10px,
-                #d4af37 20px
-            );
-            animation: progressStripes 1s linear infinite;
-        }
-
-        /* CONTACT WINDOW (CLEAN TERMINAL STYLE) */
-        .contact-area {
-            margin-top: 60px;
-            border: 1px dashed var(--border-color);
-            padding: 40px;
-            text-align: center;
-        }
-        
-        .contact-link {
-            color: var(--hornet-yellow);
-            text-decoration: none;
-            font-weight: bold;
+        .status-board h2 {
+            margin: 0 0 15px 0;
             font-size: 14px;
-            border: 1px solid var(--hornet-yellow);
-            padding: 10px 20px;
-            display: inline-block;
-            margin-top: 15px;
+            font-weight: bold;
+            color: #fff;
         }
-        .contact-link:hover {
-            background: var(--hornet-yellow);
+
+        .status-board p {
+            font-size: 13px;
+            line-height: 1.7;
+            color: #888;
+            margin: 0;
+        }
+
+        /* GRID FOR COMPILING SPECIFICATIONS */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .grid-item {
+            border: 1px dashed var(--border);
+            padding: 25px;
+        }
+
+        .grid-item span {
+            font-size: 11px;
+            color: var(--text-dim);
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .grid-item h3 {
+            margin: 0 0 5px 0;
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        .grid-item p {
+            margin: 0;
+            font-size: 12px;
+            color: #666;
+        }
+
+        /* RAW LOADING PROGRESS BAR */
+        .progress-box {
+            margin-top: 40px;
+            border: 1px solid var(--border);
+            padding: 20px;
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            font-size: 11px;
+            color: var(--text-dim);
+            margin-bottom: 10px;
+        }
+
+        .bar-wrapper {
+            width: 100%;
+            height: 2px;
+            background: #111;
+        }
+
+        .bar-fill {
+            width: 42%;
+            height: 100%;
+            background: #fff;
+        }
+
+        /* CONTACT LINK */
+        .contact-section {
+            margin-top: 60px;
+            text-align: center;
+        }
+
+        .email-btn {
+            color: #fff;
+            text-decoration: none;
+            font-size: 13px;
+            border: 1px solid #fff;
+            padding: 12px 30px;
+            display: inline-block;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .email-btn:hover {
+            background: #fff;
             color: #000;
         }
 
-        .footer { 
-            text-align: center; 
-            padding: 80px 20px; 
-            color: var(--text-muted); 
-            font-size: 11px; 
-            border-top: 1px dashed var(--border-color); 
-        }
-
-        @keyframes progressStripes {
-            from { background-position: 0 0; }
-            to { background-position: 28px 0; }
+        .footer {
+            text-align: center;
+            padding: 100px 20px;
+            color: var(--text-dim);
+            font-size: 11px;
+            border-top: 1px solid var(--border);
+            letter-spacing: 1px;
         }
     </style>
 </head>
 <body>
 
-<div class="concept-header">
-    <div class="status-badge">RECONSTRUCTION STAGE: DEPLOYED</div>
+<div class="header">
     <h1>NANOSOFT</h1>
-    <h2>Project Code Name: Hornet</h2>
-    
-    <div class="terminal-stream" id="terminal-log">
-        [SYS] Initializing kernel wipe...<br>
-        [KERNEL] Discarding outdated CoreOS 9 components...
-    </div>
+    <p>Architecture Reconstruction // 2026</p>
 </div>
 
-<div class="container">
-    
-    <div class="rework-box">
-        <h3>[!] ARCHITECTURE UNDER HEAVY REWORK</h3>
+<div class="main-container">
+
+    <div class="status-board">
+        <h2>[ SYSTEM NOTICE ]</h2>
         <p>
-            The previous standard web layout and data structure have been completely scrapped. We are actively converting the system into a sandboxed browser environment built upon the <strong>Hornet Kernel (v0.1)</strong>. Standard text and legacy specs are offline during this rewrite. Target stabilization window: Late 2026.
+            The legacy platform architecture has been completely taken offline. We are actively restructuring the entire core system into a unified browser-based platform. All old data, content grids, and specifications are currently undergoing heavy revision.
         </p>
     </div>
 
-    <div class="spec-grid">
-        <div class="spec-card">
-            <h4>Pipeline 01</h4>
-            <div class="status-line">DEPRECATED</div>
-            <div class="desc">Old core structure completely removed from root.</div>
+    <div class="grid">
+        <div class="grid-item">
+            <span>[ STAGE 01 ]</span>
+            <h3>CORE DEPRECATED</h3>
+            <p>Legacy systems dropped from root directory.</p>
         </div>
-        <div class="spec-card">
-            <h4>Pipeline 02</h4>
-            <div class="status-line">RECOMPILING</div>
-            <div class="desc">Integrating high-precision dock components & search indexers.</div>
+        <div class="grid-item">
+            <span>[ STAGE 02 ]</span>
+            <h3>RECONSTRUCTING</h3>
+            <p>Compiling clean system elements and index structures.</p>
         </div>
-        <div class="spec-card">
-            <h4>Pipeline 03</h4>
-            <div class="status-line">CONCEPT STATE</div>
-            <div class="desc">Testing visual assets, boot sequencers, and user nodes.</div>
-        </div>
-    </div>
-
-    <div class="reconstruction-section">
-        <div style="display: flex; justify-content: space-between; font-size: 12px;">
-            <span style="color: var(--text-muted);">HORNET RECONSTRUCTION STATUS</span>
-            <span style="color: var(--hornet-yellow); font-weight: bold;">42% STABLE</span>
-        </div>
-        <div class="meter-container">
-            <div class="meter-fill"></div>
+        <div class="grid-item">
+            <span>[ STAGE 03 ]</span>
+            <h3>CONCEPT STATE</h3>
+            <p>Running isolated local environment tests.</p>
         </div>
     </div>
 
-    <div class="contact-area">
-        <span style="font-size: 12px; color: var(--text-muted);">FOR ADMIN QUERIES / SECURE PACKAGES</span><br>
-        <a href="mailto:Mausbauhaus@gmail.com" class="contact-link">Mausbauhaus@gmail.com</a>
+    <div class="progress-box">
+        <div class="progress-header">
+            <span>COMPILING NEW SYSTEM ENVIRONMENT</span>
+            <span>42% DONE</span>
+        </div>
+        <div class="bar-wrapper">
+            <div class="bar-fill"></div>
+        </div>
+    </div>
+
+    <div class="contact-section">
+        <a href="mailto:Mausbauhaus@gmail.com" class="email-btn">Mausbauhaus@gmail.com</a>
     </div>
 
 </div>
 
 <div class="footer">
-    NANOSOFT LABS © 2026 | ALL SYSTEMS SUBJECT TO EXTENSIVE ARCHITECTURAL VARIATION<br>
-    BUILD TYPE: INTERNAL DEV // CODE NAME: HORNET
+    INTERNAL DEV ARCHIVE // ALL DETAILS SUBJECT TO SHIFT WITHOUT NOTICE
 </div>
-
-<script>
-    // Live-logg-effekt i den lilla rutan längst upp som scrollar text
-    const logContainer = document.getElementById('terminal-log');
-    const logLines = [
-        "[SYS] Syncing with Macon Search Cluster...",
-        "[DOCK] Compiling standalone window modules...",
-        "[HORNET] Shell stabilization matrix in progress...",
-        "[KERNEL] Allocation of browser-sandbox safe memory completed.",
-        "[SYS] Warning: Legacy data assets set to read-only.",
-        "[BUILD] Version 0.1 Internal alpha active.",
-        "[SYS] Awaiting next input from Administrator..."
-    ];
-    
-    setInterval(() => {
-        const randomLine = logLines[Math.floor(Math.random() * logLines.length)];
-        logContainer.innerHTML += `<br>${randomLine}`;
-        logContainer.scrollTop = logContainer.scrollHeight;
-    }, 2500);
-</script>
 
 </body>
 </html>
