@@ -1,136 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NANOSOFT | REWORK</title>
-    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Inter:wght@900&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg: #000000;
-            --border: #222222;
-            --text: #ffffff;
-            --text-dim: #555555;
-        }
+  <meta charset="UTF-8">
+  <title>Nanosoft Maintenance</title>
+  <style>
+    /* Animation för den vänstra pilen (rör sig höger/inåt) */
+    @keyframes pil-vanster {
+      0% { transform: translateX(0); }
+      50% { transform: translateX(6px); }
+      100% { transform: translateX(0); }
+    }
 
-        * { box-sizing: border-box; }
-        body { 
-            background-color: var(--bg); 
-            color: var(--text); 
-            font-family: 'Courier Prime', monospace; 
-            margin: 0; 
-            padding: 0;
-        }
+    /* Animation för den högra pilen (rör sig vänster/inåt) */
+    @keyframes pil-hoger {
+      0% { transform: translateX(0); }
+      50% { transform: translateX(-6px); }
+      100% { transform: translateX(0); }
+    }
 
-        /* CLEAN MINIMALIST HEADER */
-        .header {
-            padding: 140px 20px 60px 20px;
-            text-align: center;
-            border-bottom: 1px solid var(--border);
-        }
+    .v-pil {
+      display: inline-block;
+      margin-right: 8px;
+      animation: pil-vanster 1.5s infinite ease-in-out;
+    }
 
-        .header h1 {
-            font-family: 'Inter', sans-serif;
-            font-size: clamp(3rem, 10vw, 6rem);
-            font-weight: 900;
-            margin: 0;
-            letter-spacing: -3px;
-            line-height: 1;
-            text-transform: uppercase;
-        }
-
-        .header p {
-            font-size: 13px;
-            color: var(--text-dim);
-            margin: 15px 0 0 0;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .main-container {
-            max-width: 750px;
-            margin: 0 auto;
-            padding: 60px 20px;
-        }
-
-        /* NOTICE BOX */
-        .notice-box {
-            border: 1px dashed var(--border);
-            padding: 40px;
-            line-height: 1.8;
-            font-size: 14px;
-            color: #b0b0b0;
-        }
-
-        .notice-box strong {
-            color: #fff;
-        }
-
-        /* CONTACT SECTION WITH PURPOSE */
-        .contact-section {
-            margin-top: 50px;
-            text-align: center;
-        }
-
-        .contact-section p {
-            font-size: 12px;
-            color: var(--text-dim);
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .email-btn {
-            color: #fff;
-            text-decoration: none;
-            font-size: 13px;
-            border: 1px solid #fff;
-            padding: 12px 30px;
-            display: inline-block;
-            transition: background 0.2s, color 0.2s;
-        }
-
-        .email-btn:hover {
-            background: #fff;
-            color: #000;
-        }
-
-        .footer {
-            text-align: center;
-            padding: 100px 20px;
-            color: var(--text-dim);
-            font-size: 11px;
-            border-top: 1px solid var(--border);
-            letter-spacing: 1px;
-            line-height: 1.8;
-        }
-    </style>
+    .h-pil {
+      display: inline-block;
+      margin-left: 8px;
+      animation: pil-hoger 1.5s infinite ease-in-out;
+    }
+  </style>
 </head>
-<body>
+<body style="background-color: black; color: white;">
 
-<div class="header">
-    <h1>NANOSOFT</h1>
-    <p>System Reconstruction</p>
-</div>
+  <h1>NANOSOFT//DEVELOPER MESSAGE</h1>
 
-<div class="main-container">
+  <h2> Our website's (On Neocities and Github) <u>have officially shut down for maintenance and a big rework</u>, and we aim to open them again in late 2026 / early 2027 (negotiable date) Stay tuned! With kind regards- The CEO (AKA Dutch)</h2>
 
-    <div class="notice-box">
-        We have officially shut down our website to perform a complete rework of the Nanosoft architecture. All legacy systems, public codebases, and specifications are currently offline while we rebuild the platform from scratch.
-        <br><br>
-        <strong>This will be done in late 2026 (negotiable).</strong>
-    </div>
+  <br>
+  <br>
 
-    <div class="contact-section">
-        <p>For business inquiries, administration or official contact:</p>
-        <a href="mailto:Mausbauhaus@gmail.com" class="email-btn">Mausbauhaus@gmail.com</a>
-    </div>
-
-</div>
-
-<div class="footer">
-    NANOSOFT © 2026 | ALL RIGHTS RESERVED<br
-</div>
+  <h2>For further notice, please message me at:</h2>
+  
+  <h2>
+    <u><a href="mailto:mausbauhaus@gmail.com" style="color: white;"><span class="v-pil">→</span>Mausbauhaus@Gmail.com<span class="h-pil">←</span></a></u>
+  </h2>
 
 </body>
 </html>
